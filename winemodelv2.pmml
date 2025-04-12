@@ -1,0 +1,722 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PMML version="4.2" xmlns="http://www.dmg.org/PMML-4_2">
+  <Header copyright="AdminUser">
+    <Application name="KNIME" version="5.4.0"/>
+  </Header>
+  <DataDictionary numberOfFields="12">
+    <DataField name="fixed acidity" optype="continuous" dataType="double">
+      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="1.0"/>
+    </DataField>
+    <DataField name="volatile acidity" optype="continuous" dataType="double">
+      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="1.0"/>
+    </DataField>
+    <DataField name="citric acid" optype="continuous" dataType="double">
+      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="1.0"/>
+    </DataField>
+    <DataField name="residual sugar" optype="continuous" dataType="double">
+      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="1.0"/>
+    </DataField>
+    <DataField name="chlorides" optype="continuous" dataType="double">
+      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="1.0"/>
+    </DataField>
+    <DataField name="free sulfur dioxide" optype="continuous" dataType="double">
+      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="1.0"/>
+    </DataField>
+    <DataField name="total sulfur dioxide" optype="continuous" dataType="double">
+      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="1.0"/>
+    </DataField>
+    <DataField name="density" optype="continuous" dataType="double">
+      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="1.0"/>
+    </DataField>
+    <DataField name="pH" optype="continuous" dataType="double">
+      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="1.0"/>
+    </DataField>
+    <DataField name="sulphates" optype="continuous" dataType="double">
+      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="1.0"/>
+    </DataField>
+    <DataField name="alcohol" optype="continuous" dataType="double">
+      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="1.0"/>
+    </DataField>
+    <DataField name="quality" optype="categorical" dataType="string">
+      <Value value="5"/>
+      <Value value="6"/>
+      <Value value="7"/>
+      <Value value="4"/>
+      <Value value="8"/>
+      <Value value="3"/>
+    </DataField>
+  </DataDictionary>
+  <TreeModel modelName="DecisionTree" functionName="classification" splitCharacteristic="binarySplit" missingValueStrategy="lastPrediction" noTrueChildStrategy="returnNullPrediction">
+    <MiningSchema>
+      <MiningField name="fixed acidity" invalidValueTreatment="asIs"/>
+      <MiningField name="volatile acidity" invalidValueTreatment="asIs"/>
+      <MiningField name="citric acid" invalidValueTreatment="asIs"/>
+      <MiningField name="residual sugar" invalidValueTreatment="asIs"/>
+      <MiningField name="chlorides" invalidValueTreatment="asIs"/>
+      <MiningField name="free sulfur dioxide" invalidValueTreatment="asIs"/>
+      <MiningField name="total sulfur dioxide" invalidValueTreatment="asIs"/>
+      <MiningField name="density" invalidValueTreatment="asIs"/>
+      <MiningField name="pH" invalidValueTreatment="asIs"/>
+      <MiningField name="sulphates" invalidValueTreatment="asIs"/>
+      <MiningField name="alcohol" invalidValueTreatment="asIs"/>
+      <MiningField name="quality" invalidValueTreatment="asIs" usageType="target"/>
+    </MiningSchema>
+    <Node id="0" score="5" recordCount="1279.0">
+      <True/>
+      <ScoreDistribution value="5" recordCount="552.0"/>
+      <ScoreDistribution value="7" recordCount="159.0"/>
+      <ScoreDistribution value="4" recordCount="47.0"/>
+      <ScoreDistribution value="6" recordCount="499.0"/>
+      <ScoreDistribution value="8" recordCount="14.0"/>
+      <ScoreDistribution value="3" recordCount="8.0"/>
+      <Node id="1" score="5" recordCount="673.0">
+        <SimplePredicate field="alcohol" operator="lessOrEqual" value="0.2846153846153846"/>
+        <ScoreDistribution value="5" recordCount="428.0"/>
+        <ScoreDistribution value="7" recordCount="19.0"/>
+        <ScoreDistribution value="4" recordCount="25.0"/>
+        <ScoreDistribution value="6" recordCount="194.0"/>
+        <ScoreDistribution value="8" recordCount="2.0"/>
+        <ScoreDistribution value="3" recordCount="5.0"/>
+        <Node id="2" score="6" recordCount="139.0">
+          <SimplePredicate field="volatile acidity" operator="lessOrEqual" value="0.20376712328767121"/>
+          <ScoreDistribution value="5" recordCount="60.0"/>
+          <ScoreDistribution value="7" recordCount="10.0"/>
+          <ScoreDistribution value="4" recordCount="3.0"/>
+          <ScoreDistribution value="6" recordCount="64.0"/>
+          <ScoreDistribution value="8" recordCount="2.0"/>
+          <ScoreDistribution value="3" recordCount="0.0"/>
+          <Node id="3" score="5" recordCount="80.0">
+            <SimplePredicate field="alcohol" operator="lessOrEqual" value="0.1923076923076923"/>
+            <ScoreDistribution value="5" recordCount="50.0"/>
+            <ScoreDistribution value="7" recordCount="1.0"/>
+            <ScoreDistribution value="4" recordCount="2.0"/>
+            <ScoreDistribution value="6" recordCount="27.0"/>
+            <ScoreDistribution value="8" recordCount="0.0"/>
+            <ScoreDistribution value="3" recordCount="0.0"/>
+            <Node id="4" score="5" recordCount="36.0">
+              <SimplePredicate field="sulphates" operator="lessOrEqual" value="0.1526946107784431"/>
+              <ScoreDistribution value="5" recordCount="29.0"/>
+              <ScoreDistribution value="7" recordCount="0.0"/>
+              <ScoreDistribution value="4" recordCount="1.0"/>
+              <ScoreDistribution value="6" recordCount="6.0"/>
+              <ScoreDistribution value="8" recordCount="0.0"/>
+              <ScoreDistribution value="3" recordCount="0.0"/>
+            </Node>
+            <Node id="15" score="5" recordCount="44.0">
+              <SimplePredicate field="sulphates" operator="greaterThan" value="0.1526946107784431"/>
+              <ScoreDistribution value="5" recordCount="21.0"/>
+              <ScoreDistribution value="7" recordCount="1.0"/>
+              <ScoreDistribution value="4" recordCount="1.0"/>
+              <ScoreDistribution value="6" recordCount="21.0"/>
+              <ScoreDistribution value="8" recordCount="0.0"/>
+              <ScoreDistribution value="3" recordCount="0.0"/>
+              <Node id="16" score="6" recordCount="30.0">
+                <SimplePredicate field="chlorides" operator="lessOrEqual" value="0.13439065108514192"/>
+                <ScoreDistribution value="5" recordCount="10.0"/>
+                <ScoreDistribution value="7" recordCount="1.0"/>
+                <ScoreDistribution value="4" recordCount="1.0"/>
+                <ScoreDistribution value="6" recordCount="18.0"/>
+                <ScoreDistribution value="8" recordCount="0.0"/>
+                <ScoreDistribution value="3" recordCount="0.0"/>
+              </Node>
+              <Node id="31" score="5" recordCount="14.0">
+                <SimplePredicate field="chlorides" operator="greaterThan" value="0.13439065108514192"/>
+                <ScoreDistribution value="5" recordCount="11.0"/>
+                <ScoreDistribution value="7" recordCount="0.0"/>
+                <ScoreDistribution value="4" recordCount="0.0"/>
+                <ScoreDistribution value="6" recordCount="3.0"/>
+                <ScoreDistribution value="8" recordCount="0.0"/>
+                <ScoreDistribution value="3" recordCount="0.0"/>
+              </Node>
+            </Node>
+          </Node>
+          <Node id="38" score="6" recordCount="59.0">
+            <SimplePredicate field="alcohol" operator="greaterThan" value="0.1923076923076923"/>
+            <ScoreDistribution value="5" recordCount="10.0"/>
+            <ScoreDistribution value="7" recordCount="9.0"/>
+            <ScoreDistribution value="4" recordCount="1.0"/>
+            <ScoreDistribution value="6" recordCount="37.0"/>
+            <ScoreDistribution value="8" recordCount="2.0"/>
+            <ScoreDistribution value="3" recordCount="0.0"/>
+          </Node>
+        </Node>
+        <Node id="65" score="5" recordCount="534.0">
+          <SimplePredicate field="volatile acidity" operator="greaterThan" value="0.20376712328767121"/>
+          <ScoreDistribution value="5" recordCount="368.0"/>
+          <ScoreDistribution value="7" recordCount="9.0"/>
+          <ScoreDistribution value="4" recordCount="22.0"/>
+          <ScoreDistribution value="6" recordCount="130.0"/>
+          <ScoreDistribution value="8" recordCount="0.0"/>
+          <ScoreDistribution value="3" recordCount="5.0"/>
+          <Node id="66" score="5" recordCount="461.0">
+            <SimplePredicate field="total sulfur dioxide" operator="lessOrEqual" value="0.32685512367491165"/>
+            <ScoreDistribution value="5" recordCount="301.0"/>
+            <ScoreDistribution value="7" recordCount="9.0"/>
+            <ScoreDistribution value="4" recordCount="21.0"/>
+            <ScoreDistribution value="6" recordCount="125.0"/>
+            <ScoreDistribution value="8" recordCount="0.0"/>
+            <ScoreDistribution value="3" recordCount="5.0"/>
+            <Node id="67" score="5" recordCount="203.0">
+              <SimplePredicate field="sulphates" operator="lessOrEqual" value="0.1467065868263473"/>
+              <ScoreDistribution value="5" recordCount="149.0"/>
+              <ScoreDistribution value="7" recordCount="2.0"/>
+              <ScoreDistribution value="4" recordCount="13.0"/>
+              <ScoreDistribution value="6" recordCount="37.0"/>
+              <ScoreDistribution value="8" recordCount="0.0"/>
+              <ScoreDistribution value="3" recordCount="2.0"/>
+            </Node>
+            <Node id="134" score="5" recordCount="258.0">
+              <SimplePredicate field="sulphates" operator="greaterThan" value="0.1467065868263473"/>
+              <ScoreDistribution value="5" recordCount="152.0"/>
+              <ScoreDistribution value="7" recordCount="7.0"/>
+              <ScoreDistribution value="4" recordCount="8.0"/>
+              <ScoreDistribution value="6" recordCount="88.0"/>
+              <ScoreDistribution value="8" recordCount="0.0"/>
+              <ScoreDistribution value="3" recordCount="3.0"/>
+              <Node id="135" score="5" recordCount="126.0">
+                <SimplePredicate field="total sulfur dioxide" operator="lessOrEqual" value="0.1148409893992933"/>
+                <ScoreDistribution value="5" recordCount="60.0"/>
+                <ScoreDistribution value="7" recordCount="4.0"/>
+                <ScoreDistribution value="4" recordCount="3.0"/>
+                <ScoreDistribution value="6" recordCount="57.0"/>
+                <ScoreDistribution value="8" recordCount="0.0"/>
+                <ScoreDistribution value="3" recordCount="2.0"/>
+                <Node id="136" score="6" recordCount="92.0">
+                  <SimplePredicate field="volatile acidity" operator="lessOrEqual" value="0.3664383561643836"/>
+                  <ScoreDistribution value="5" recordCount="38.0"/>
+                  <ScoreDistribution value="7" recordCount="3.0"/>
+                  <ScoreDistribution value="4" recordCount="1.0"/>
+                  <ScoreDistribution value="6" recordCount="49.0"/>
+                  <ScoreDistribution value="8" recordCount="0.0"/>
+                  <ScoreDistribution value="3" recordCount="1.0"/>
+                  <Node id="137" score="5" recordCount="6.0">
+                    <SimplePredicate field="free sulfur dioxide" operator="lessOrEqual" value="0.04929577464788733"/>
+                    <ScoreDistribution value="5" recordCount="6.0"/>
+                    <ScoreDistribution value="7" recordCount="0.0"/>
+                    <ScoreDistribution value="4" recordCount="0.0"/>
+                    <ScoreDistribution value="6" recordCount="0.0"/>
+                    <ScoreDistribution value="8" recordCount="0.0"/>
+                    <ScoreDistribution value="3" recordCount="0.0"/>
+                  </Node>
+                  <Node id="138" score="6" recordCount="86.0">
+                    <SimplePredicate field="free sulfur dioxide" operator="greaterThan" value="0.04929577464788733"/>
+                    <ScoreDistribution value="5" recordCount="32.0"/>
+                    <ScoreDistribution value="7" recordCount="3.0"/>
+                    <ScoreDistribution value="4" recordCount="1.0"/>
+                    <ScoreDistribution value="6" recordCount="49.0"/>
+                    <ScoreDistribution value="8" recordCount="0.0"/>
+                    <ScoreDistribution value="3" recordCount="1.0"/>
+                    <Node id="139" score="5" recordCount="15.0">
+                      <SimplePredicate field="fixed acidity" operator="lessOrEqual" value="0.19026548672566373"/>
+                      <ScoreDistribution value="5" recordCount="10.0"/>
+                      <ScoreDistribution value="7" recordCount="0.0"/>
+                      <ScoreDistribution value="4" recordCount="1.0"/>
+                      <ScoreDistribution value="6" recordCount="4.0"/>
+                      <ScoreDistribution value="8" recordCount="0.0"/>
+                      <ScoreDistribution value="3" recordCount="0.0"/>
+                    </Node>
+                    <Node id="144" score="6" recordCount="71.0">
+                      <SimplePredicate field="fixed acidity" operator="greaterThan" value="0.19026548672566373"/>
+                      <ScoreDistribution value="5" recordCount="22.0"/>
+                      <ScoreDistribution value="7" recordCount="3.0"/>
+                      <ScoreDistribution value="4" recordCount="0.0"/>
+                      <ScoreDistribution value="6" recordCount="45.0"/>
+                      <ScoreDistribution value="8" recordCount="0.0"/>
+                      <ScoreDistribution value="3" recordCount="1.0"/>
+                    </Node>
+                  </Node>
+                </Node>
+                <Node id="175" score="5" recordCount="34.0">
+                  <SimplePredicate field="volatile acidity" operator="greaterThan" value="0.3664383561643836"/>
+                  <ScoreDistribution value="5" recordCount="22.0"/>
+                  <ScoreDistribution value="7" recordCount="1.0"/>
+                  <ScoreDistribution value="4" recordCount="2.0"/>
+                  <ScoreDistribution value="6" recordCount="8.0"/>
+                  <ScoreDistribution value="8" recordCount="0.0"/>
+                  <ScoreDistribution value="3" recordCount="1.0"/>
+                </Node>
+              </Node>
+              <Node id="192" score="5" recordCount="132.0">
+                <SimplePredicate field="total sulfur dioxide" operator="greaterThan" value="0.1148409893992933"/>
+                <ScoreDistribution value="5" recordCount="92.0"/>
+                <ScoreDistribution value="7" recordCount="3.0"/>
+                <ScoreDistribution value="4" recordCount="5.0"/>
+                <ScoreDistribution value="6" recordCount="31.0"/>
+                <ScoreDistribution value="8" recordCount="0.0"/>
+                <ScoreDistribution value="3" recordCount="1.0"/>
+                <Node id="193" score="5" recordCount="88.0">
+                  <SimplePredicate field="chlorides" operator="lessOrEqual" value="0.14106844741235391"/>
+                  <ScoreDistribution value="5" recordCount="55.0"/>
+                  <ScoreDistribution value="7" recordCount="3.0"/>
+                  <ScoreDistribution value="4" recordCount="3.0"/>
+                  <ScoreDistribution value="6" recordCount="27.0"/>
+                  <ScoreDistribution value="8" recordCount="0.0"/>
+                  <ScoreDistribution value="3" recordCount="0.0"/>
+                  <Node id="194" score="5" recordCount="38.0">
+                    <SimplePredicate field="citric acid" operator="lessOrEqual" value="0.185"/>
+                    <ScoreDistribution value="5" recordCount="31.0"/>
+                    <ScoreDistribution value="7" recordCount="0.0"/>
+                    <ScoreDistribution value="4" recordCount="2.0"/>
+                    <ScoreDistribution value="6" recordCount="5.0"/>
+                    <ScoreDistribution value="8" recordCount="0.0"/>
+                    <ScoreDistribution value="3" recordCount="0.0"/>
+                  </Node>
+                  <Node id="205" score="5" recordCount="50.0">
+                    <SimplePredicate field="citric acid" operator="greaterThan" value="0.185"/>
+                    <ScoreDistribution value="5" recordCount="24.0"/>
+                    <ScoreDistribution value="7" recordCount="3.0"/>
+                    <ScoreDistribution value="4" recordCount="1.0"/>
+                    <ScoreDistribution value="6" recordCount="22.0"/>
+                    <ScoreDistribution value="8" recordCount="0.0"/>
+                    <ScoreDistribution value="3" recordCount="0.0"/>
+                    <Node id="206" score="6" recordCount="29.0">
+                      <SimplePredicate field="citric acid" operator="lessOrEqual" value="0.315"/>
+                      <ScoreDistribution value="5" recordCount="9.0"/>
+                      <ScoreDistribution value="7" recordCount="0.0"/>
+                      <ScoreDistribution value="4" recordCount="1.0"/>
+                      <ScoreDistribution value="6" recordCount="19.0"/>
+                      <ScoreDistribution value="8" recordCount="0.0"/>
+                      <ScoreDistribution value="3" recordCount="0.0"/>
+                    </Node>
+                    <Node id="219" score="5" recordCount="21.0">
+                      <SimplePredicate field="citric acid" operator="greaterThan" value="0.315"/>
+                      <ScoreDistribution value="5" recordCount="15.0"/>
+                      <ScoreDistribution value="7" recordCount="3.0"/>
+                      <ScoreDistribution value="4" recordCount="0.0"/>
+                      <ScoreDistribution value="6" recordCount="3.0"/>
+                      <ScoreDistribution value="8" recordCount="0.0"/>
+                      <ScoreDistribution value="3" recordCount="0.0"/>
+                    </Node>
+                  </Node>
+                </Node>
+                <Node id="228" score="5" recordCount="44.0">
+                  <SimplePredicate field="chlorides" operator="greaterThan" value="0.14106844741235391"/>
+                  <ScoreDistribution value="5" recordCount="37.0"/>
+                  <ScoreDistribution value="7" recordCount="0.0"/>
+                  <ScoreDistribution value="4" recordCount="2.0"/>
+                  <ScoreDistribution value="6" recordCount="4.0"/>
+                  <ScoreDistribution value="8" recordCount="0.0"/>
+                  <ScoreDistribution value="3" recordCount="1.0"/>
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+          <Node id="241" score="5" recordCount="73.0">
+            <SimplePredicate field="total sulfur dioxide" operator="greaterThan" value="0.32685512367491165"/>
+            <ScoreDistribution value="5" recordCount="67.0"/>
+            <ScoreDistribution value="7" recordCount="0.0"/>
+            <ScoreDistribution value="4" recordCount="1.0"/>
+            <ScoreDistribution value="6" recordCount="5.0"/>
+            <ScoreDistribution value="8" recordCount="0.0"/>
+            <ScoreDistribution value="3" recordCount="0.0"/>
+          </Node>
+        </Node>
+      </Node>
+      <Node id="252" score="6" recordCount="606.0">
+        <SimplePredicate field="alcohol" operator="greaterThan" value="0.2846153846153846"/>
+        <ScoreDistribution value="5" recordCount="124.0"/>
+        <ScoreDistribution value="7" recordCount="140.0"/>
+        <ScoreDistribution value="4" recordCount="22.0"/>
+        <ScoreDistribution value="6" recordCount="305.0"/>
+        <ScoreDistribution value="8" recordCount="12.0"/>
+        <ScoreDistribution value="3" recordCount="3.0"/>
+        <Node id="253" score="6" recordCount="370.0">
+          <SimplePredicate field="sulphates" operator="lessOrEqual" value="0.21856287425149698"/>
+          <ScoreDistribution value="5" recordCount="96.0"/>
+          <ScoreDistribution value="7" recordCount="45.0"/>
+          <ScoreDistribution value="4" recordCount="22.0"/>
+          <ScoreDistribution value="6" recordCount="198.0"/>
+          <ScoreDistribution value="8" recordCount="6.0"/>
+          <ScoreDistribution value="3" recordCount="3.0"/>
+          <Node id="254" score="6" recordCount="235.0">
+            <SimplePredicate field="alcohol" operator="lessOrEqual" value="0.46923076923076934"/>
+            <ScoreDistribution value="5" recordCount="82.0"/>
+            <ScoreDistribution value="7" recordCount="18.0"/>
+            <ScoreDistribution value="4" recordCount="17.0"/>
+            <ScoreDistribution value="6" recordCount="113.0"/>
+            <ScoreDistribution value="8" recordCount="2.0"/>
+            <ScoreDistribution value="3" recordCount="3.0"/>
+            <Node id="255" score="5" recordCount="100.0">
+              <SimplePredicate field="free sulfur dioxide" operator="lessOrEqual" value="0.13380281690140844"/>
+              <ScoreDistribution value="5" recordCount="43.0"/>
+              <ScoreDistribution value="7" recordCount="11.0"/>
+              <ScoreDistribution value="4" recordCount="9.0"/>
+              <ScoreDistribution value="6" recordCount="32.0"/>
+              <ScoreDistribution value="8" recordCount="2.0"/>
+              <ScoreDistribution value="3" recordCount="3.0"/>
+              <Node id="256" score="5" recordCount="94.0">
+                <SimplePredicate field="volatile acidity" operator="lessOrEqual" value="0.5376712328767124"/>
+                <ScoreDistribution value="5" recordCount="42.0"/>
+                <ScoreDistribution value="7" recordCount="11.0"/>
+                <ScoreDistribution value="4" recordCount="7.0"/>
+                <ScoreDistribution value="6" recordCount="32.0"/>
+                <ScoreDistribution value="8" recordCount="2.0"/>
+                <ScoreDistribution value="3" recordCount="0.0"/>
+                <Node id="257" score="6" recordCount="55.0">
+                  <SimplePredicate field="pH" operator="lessOrEqual" value="0.4842519685039368"/>
+                  <ScoreDistribution value="5" recordCount="18.0"/>
+                  <ScoreDistribution value="7" recordCount="9.0"/>
+                  <ScoreDistribution value="4" recordCount="4.0"/>
+                  <ScoreDistribution value="6" recordCount="22.0"/>
+                  <ScoreDistribution value="8" recordCount="2.0"/>
+                  <ScoreDistribution value="3" recordCount="0.0"/>
+                  <Node id="258" score="6" recordCount="32.0">
+                    <SimplePredicate field="alcohol" operator="lessOrEqual" value="0.39230769230769236"/>
+                    <ScoreDistribution value="5" recordCount="11.0"/>
+                    <ScoreDistribution value="7" recordCount="1.0"/>
+                    <ScoreDistribution value="4" recordCount="3.0"/>
+                    <ScoreDistribution value="6" recordCount="17.0"/>
+                    <ScoreDistribution value="8" recordCount="0.0"/>
+                    <ScoreDistribution value="3" recordCount="0.0"/>
+                    <Node id="259" score="5" recordCount="20.0">
+                      <SimplePredicate field="alcohol" operator="lessOrEqual" value="0.3307692307692307"/>
+                      <ScoreDistribution value="5" recordCount="10.0"/>
+                      <ScoreDistribution value="7" recordCount="0.0"/>
+                      <ScoreDistribution value="4" recordCount="3.0"/>
+                      <ScoreDistribution value="6" recordCount="7.0"/>
+                      <ScoreDistribution value="8" recordCount="0.0"/>
+                      <ScoreDistribution value="3" recordCount="0.0"/>
+                      <Node id="260" score="6" recordCount="9.0">
+                        <SimplePredicate field="residual sugar" operator="lessOrEqual" value="0.08561643835616438"/>
+                        <ScoreDistribution value="5" recordCount="1.0"/>
+                        <ScoreDistribution value="7" recordCount="0.0"/>
+                        <ScoreDistribution value="4" recordCount="3.0"/>
+                        <ScoreDistribution value="6" recordCount="5.0"/>
+                        <ScoreDistribution value="8" recordCount="0.0"/>
+                        <ScoreDistribution value="3" recordCount="0.0"/>
+                      </Node>
+                      <Node id="265" score="5" recordCount="11.0">
+                        <SimplePredicate field="residual sugar" operator="greaterThan" value="0.08561643835616438"/>
+                        <ScoreDistribution value="5" recordCount="9.0"/>
+                        <ScoreDistribution value="7" recordCount="0.0"/>
+                        <ScoreDistribution value="4" recordCount="0.0"/>
+                        <ScoreDistribution value="6" recordCount="2.0"/>
+                        <ScoreDistribution value="8" recordCount="0.0"/>
+                        <ScoreDistribution value="3" recordCount="0.0"/>
+                      </Node>
+                    </Node>
+                    <Node id="270" score="6" recordCount="12.0">
+                      <SimplePredicate field="alcohol" operator="greaterThan" value="0.3307692307692307"/>
+                      <ScoreDistribution value="5" recordCount="1.0"/>
+                      <ScoreDistribution value="7" recordCount="1.0"/>
+                      <ScoreDistribution value="4" recordCount="0.0"/>
+                      <ScoreDistribution value="6" recordCount="10.0"/>
+                      <ScoreDistribution value="8" recordCount="0.0"/>
+                      <ScoreDistribution value="3" recordCount="0.0"/>
+                    </Node>
+                  </Node>
+                  <Node id="273" score="7" recordCount="23.0">
+                    <SimplePredicate field="alcohol" operator="greaterThan" value="0.39230769230769236"/>
+                    <ScoreDistribution value="5" recordCount="7.0"/>
+                    <ScoreDistribution value="7" recordCount="8.0"/>
+                    <ScoreDistribution value="4" recordCount="1.0"/>
+                    <ScoreDistribution value="6" recordCount="5.0"/>
+                    <ScoreDistribution value="8" recordCount="2.0"/>
+                    <ScoreDistribution value="3" recordCount="0.0"/>
+                    <Node id="274" score="7" recordCount="11.0">
+                      <SimplePredicate field="citric acid" operator="lessOrEqual" value="0.41000000000000003"/>
+                      <ScoreDistribution value="5" recordCount="1.0"/>
+                      <ScoreDistribution value="7" recordCount="7.0"/>
+                      <ScoreDistribution value="4" recordCount="1.0"/>
+                      <ScoreDistribution value="6" recordCount="2.0"/>
+                      <ScoreDistribution value="8" recordCount="0.0"/>
+                      <ScoreDistribution value="3" recordCount="0.0"/>
+                    </Node>
+                    <Node id="281" score="5" recordCount="12.0">
+                      <SimplePredicate field="citric acid" operator="greaterThan" value="0.41000000000000003"/>
+                      <ScoreDistribution value="5" recordCount="6.0"/>
+                      <ScoreDistribution value="7" recordCount="1.0"/>
+                      <ScoreDistribution value="4" recordCount="0.0"/>
+                      <ScoreDistribution value="6" recordCount="3.0"/>
+                      <ScoreDistribution value="8" recordCount="2.0"/>
+                      <ScoreDistribution value="3" recordCount="0.0"/>
+                    </Node>
+                  </Node>
+                </Node>
+                <Node id="288" score="5" recordCount="39.0">
+                  <SimplePredicate field="pH" operator="greaterThan" value="0.4842519685039368"/>
+                  <ScoreDistribution value="5" recordCount="24.0"/>
+                  <ScoreDistribution value="7" recordCount="2.0"/>
+                  <ScoreDistribution value="4" recordCount="3.0"/>
+                  <ScoreDistribution value="6" recordCount="10.0"/>
+                  <ScoreDistribution value="8" recordCount="0.0"/>
+                  <ScoreDistribution value="3" recordCount="0.0"/>
+                </Node>
+              </Node>
+              <Node id="303" score="3" recordCount="6.0">
+                <SimplePredicate field="volatile acidity" operator="greaterThan" value="0.5376712328767124"/>
+                <ScoreDistribution value="5" recordCount="1.0"/>
+                <ScoreDistribution value="7" recordCount="0.0"/>
+                <ScoreDistribution value="4" recordCount="2.0"/>
+                <ScoreDistribution value="6" recordCount="0.0"/>
+                <ScoreDistribution value="8" recordCount="0.0"/>
+                <ScoreDistribution value="3" recordCount="3.0"/>
+              </Node>
+            </Node>
+            <Node id="308" score="6" recordCount="135.0">
+              <SimplePredicate field="free sulfur dioxide" operator="greaterThan" value="0.13380281690140844"/>
+              <ScoreDistribution value="5" recordCount="39.0"/>
+              <ScoreDistribution value="7" recordCount="7.0"/>
+              <ScoreDistribution value="4" recordCount="8.0"/>
+              <ScoreDistribution value="6" recordCount="81.0"/>
+              <ScoreDistribution value="8" recordCount="0.0"/>
+              <ScoreDistribution value="3" recordCount="0.0"/>
+              <Node id="309" score="6" recordCount="122.0">
+                <SimplePredicate field="volatile acidity" operator="lessOrEqual" value="0.511986301369863"/>
+                <ScoreDistribution value="5" recordCount="34.0"/>
+                <ScoreDistribution value="7" recordCount="7.0"/>
+                <ScoreDistribution value="4" recordCount="2.0"/>
+                <ScoreDistribution value="6" recordCount="79.0"/>
+                <ScoreDistribution value="8" recordCount="0.0"/>
+                <ScoreDistribution value="3" recordCount="0.0"/>
+              </Node>
+              <Node id="356" score="4" recordCount="13.0">
+                <SimplePredicate field="volatile acidity" operator="greaterThan" value="0.511986301369863"/>
+                <ScoreDistribution value="5" recordCount="5.0"/>
+                <ScoreDistribution value="7" recordCount="0.0"/>
+                <ScoreDistribution value="4" recordCount="6.0"/>
+                <ScoreDistribution value="6" recordCount="2.0"/>
+                <ScoreDistribution value="8" recordCount="0.0"/>
+                <ScoreDistribution value="3" recordCount="0.0"/>
+                <Node id="357" score="5" recordCount="4.0">
+                  <SimplePredicate field="pH" operator="lessOrEqual" value="0.5354330708661417"/>
+                  <ScoreDistribution value="5" recordCount="4.0"/>
+                  <ScoreDistribution value="7" recordCount="0.0"/>
+                  <ScoreDistribution value="4" recordCount="0.0"/>
+                  <ScoreDistribution value="6" recordCount="0.0"/>
+                  <ScoreDistribution value="8" recordCount="0.0"/>
+                  <ScoreDistribution value="3" recordCount="0.0"/>
+                </Node>
+                <Node id="358" score="4" recordCount="9.0">
+                  <SimplePredicate field="pH" operator="greaterThan" value="0.5354330708661417"/>
+                  <ScoreDistribution value="5" recordCount="1.0"/>
+                  <ScoreDistribution value="7" recordCount="0.0"/>
+                  <ScoreDistribution value="4" recordCount="6.0"/>
+                  <ScoreDistribution value="6" recordCount="2.0"/>
+                  <ScoreDistribution value="8" recordCount="0.0"/>
+                  <ScoreDistribution value="3" recordCount="0.0"/>
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+          <Node id="363" score="6" recordCount="135.0">
+            <SimplePredicate field="alcohol" operator="greaterThan" value="0.46923076923076934"/>
+            <ScoreDistribution value="5" recordCount="14.0"/>
+            <ScoreDistribution value="7" recordCount="27.0"/>
+            <ScoreDistribution value="4" recordCount="5.0"/>
+            <ScoreDistribution value="6" recordCount="85.0"/>
+            <ScoreDistribution value="8" recordCount="4.0"/>
+            <ScoreDistribution value="3" recordCount="0.0"/>
+            <Node id="364" score="7" recordCount="39.0">
+              <SimplePredicate field="total sulfur dioxide" operator="lessOrEqual" value="0.03356890459363958"/>
+              <ScoreDistribution value="5" recordCount="4.0"/>
+              <ScoreDistribution value="7" recordCount="16.0"/>
+              <ScoreDistribution value="4" recordCount="2.0"/>
+              <ScoreDistribution value="6" recordCount="16.0"/>
+              <ScoreDistribution value="8" recordCount="1.0"/>
+              <ScoreDistribution value="3" recordCount="0.0"/>
+              <Node id="365" score="6" recordCount="14.0">
+                <SimplePredicate field="sulphates" operator="lessOrEqual" value="0.1287425149700599"/>
+                <ScoreDistribution value="5" recordCount="3.0"/>
+                <ScoreDistribution value="7" recordCount="1.0"/>
+                <ScoreDistribution value="4" recordCount="0.0"/>
+                <ScoreDistribution value="6" recordCount="10.0"/>
+                <ScoreDistribution value="8" recordCount="0.0"/>
+                <ScoreDistribution value="3" recordCount="0.0"/>
+              </Node>
+              <Node id="370" score="7" recordCount="25.0">
+                <SimplePredicate field="sulphates" operator="greaterThan" value="0.1287425149700599"/>
+                <ScoreDistribution value="5" recordCount="1.0"/>
+                <ScoreDistribution value="7" recordCount="15.0"/>
+                <ScoreDistribution value="4" recordCount="2.0"/>
+                <ScoreDistribution value="6" recordCount="6.0"/>
+                <ScoreDistribution value="8" recordCount="1.0"/>
+                <ScoreDistribution value="3" recordCount="0.0"/>
+              </Node>
+            </Node>
+            <Node id="383" score="6" recordCount="96.0">
+              <SimplePredicate field="total sulfur dioxide" operator="greaterThan" value="0.03356890459363958"/>
+              <ScoreDistribution value="5" recordCount="10.0"/>
+              <ScoreDistribution value="7" recordCount="11.0"/>
+              <ScoreDistribution value="4" recordCount="3.0"/>
+              <ScoreDistribution value="6" recordCount="69.0"/>
+              <ScoreDistribution value="8" recordCount="3.0"/>
+              <ScoreDistribution value="3" recordCount="0.0"/>
+            </Node>
+          </Node>
+        </Node>
+        <Node id="422" score="6" recordCount="236.0">
+          <SimplePredicate field="sulphates" operator="greaterThan" value="0.21856287425149698"/>
+          <ScoreDistribution value="5" recordCount="28.0"/>
+          <ScoreDistribution value="7" recordCount="95.0"/>
+          <ScoreDistribution value="4" recordCount="0.0"/>
+          <ScoreDistribution value="6" recordCount="107.0"/>
+          <ScoreDistribution value="8" recordCount="6.0"/>
+          <ScoreDistribution value="3" recordCount="0.0"/>
+          <Node id="423" score="6" recordCount="157.0">
+            <SimplePredicate field="alcohol" operator="lessOrEqual" value="0.5"/>
+            <ScoreDistribution value="5" recordCount="27.0"/>
+            <ScoreDistribution value="7" recordCount="46.0"/>
+            <ScoreDistribution value="4" recordCount="0.0"/>
+            <ScoreDistribution value="6" recordCount="82.0"/>
+            <ScoreDistribution value="8" recordCount="2.0"/>
+            <ScoreDistribution value="3" recordCount="0.0"/>
+            <Node id="424" score="6" recordCount="150.0">
+              <SimplePredicate field="total sulfur dioxide" operator="lessOrEqual" value="0.3639575971731449"/>
+              <ScoreDistribution value="5" recordCount="20.0"/>
+              <ScoreDistribution value="7" recordCount="46.0"/>
+              <ScoreDistribution value="4" recordCount="0.0"/>
+              <ScoreDistribution value="6" recordCount="82.0"/>
+              <ScoreDistribution value="8" recordCount="2.0"/>
+              <ScoreDistribution value="3" recordCount="0.0"/>
+              <Node id="425" score="7" recordCount="78.0">
+                <SimplePredicate field="volatile acidity" operator="lessOrEqual" value="0.19520547945205477"/>
+                <ScoreDistribution value="5" recordCount="6.0"/>
+                <ScoreDistribution value="7" recordCount="35.0"/>
+                <ScoreDistribution value="4" recordCount="0.0"/>
+                <ScoreDistribution value="6" recordCount="35.0"/>
+                <ScoreDistribution value="8" recordCount="2.0"/>
+                <ScoreDistribution value="3" recordCount="0.0"/>
+                <Node id="426" score="7" recordCount="55.0">
+                  <SimplePredicate field="total sulfur dioxide" operator="lessOrEqual" value="0.15371024734982333"/>
+                  <ScoreDistribution value="5" recordCount="2.0"/>
+                  <ScoreDistribution value="7" recordCount="30.0"/>
+                  <ScoreDistribution value="4" recordCount="0.0"/>
+                  <ScoreDistribution value="6" recordCount="21.0"/>
+                  <ScoreDistribution value="8" recordCount="2.0"/>
+                  <ScoreDistribution value="3" recordCount="0.0"/>
+                  <Node id="427" score="7" recordCount="14.0">
+                    <SimplePredicate field="density" operator="lessOrEqual" value="0.4001468428781223"/>
+                    <ScoreDistribution value="5" recordCount="1.0"/>
+                    <ScoreDistribution value="7" recordCount="10.0"/>
+                    <ScoreDistribution value="4" recordCount="0.0"/>
+                    <ScoreDistribution value="6" recordCount="1.0"/>
+                    <ScoreDistribution value="8" recordCount="2.0"/>
+                    <ScoreDistribution value="3" recordCount="0.0"/>
+                  </Node>
+                  <Node id="432" score="7" recordCount="41.0">
+                    <SimplePredicate field="density" operator="greaterThan" value="0.4001468428781223"/>
+                    <ScoreDistribution value="5" recordCount="1.0"/>
+                    <ScoreDistribution value="7" recordCount="20.0"/>
+                    <ScoreDistribution value="4" recordCount="0.0"/>
+                    <ScoreDistribution value="6" recordCount="20.0"/>
+                    <ScoreDistribution value="8" recordCount="0.0"/>
+                    <ScoreDistribution value="3" recordCount="0.0"/>
+                    <Node id="433" score="7" recordCount="5.0">
+                      <SimplePredicate field="chlorides" operator="lessOrEqual" value="0.08180300500834725"/>
+                      <ScoreDistribution value="5" recordCount="0.0"/>
+                      <ScoreDistribution value="7" recordCount="5.0"/>
+                      <ScoreDistribution value="4" recordCount="0.0"/>
+                      <ScoreDistribution value="6" recordCount="0.0"/>
+                      <ScoreDistribution value="8" recordCount="0.0"/>
+                      <ScoreDistribution value="3" recordCount="0.0"/>
+                    </Node>
+                    <Node id="434" score="6" recordCount="36.0">
+                      <SimplePredicate field="chlorides" operator="greaterThan" value="0.08180300500834725"/>
+                      <ScoreDistribution value="5" recordCount="1.0"/>
+                      <ScoreDistribution value="7" recordCount="15.0"/>
+                      <ScoreDistribution value="4" recordCount="0.0"/>
+                      <ScoreDistribution value="6" recordCount="20.0"/>
+                      <ScoreDistribution value="8" recordCount="0.0"/>
+                      <ScoreDistribution value="3" recordCount="0.0"/>
+                      <Node id="435" score="6" recordCount="20.0">
+                        <SimplePredicate field="residual sugar" operator="lessOrEqual" value="0.10616438356164383"/>
+                        <ScoreDistribution value="5" recordCount="1.0"/>
+                        <ScoreDistribution value="7" recordCount="4.0"/>
+                        <ScoreDistribution value="4" recordCount="0.0"/>
+                        <ScoreDistribution value="6" recordCount="15.0"/>
+                        <ScoreDistribution value="8" recordCount="0.0"/>
+                        <ScoreDistribution value="3" recordCount="0.0"/>
+                      </Node>
+                      <Node id="442" score="7" recordCount="16.0">
+                        <SimplePredicate field="residual sugar" operator="greaterThan" value="0.10616438356164383"/>
+                        <ScoreDistribution value="5" recordCount="0.0"/>
+                        <ScoreDistribution value="7" recordCount="11.0"/>
+                        <ScoreDistribution value="4" recordCount="0.0"/>
+                        <ScoreDistribution value="6" recordCount="5.0"/>
+                        <ScoreDistribution value="8" recordCount="0.0"/>
+                        <ScoreDistribution value="3" recordCount="0.0"/>
+                      </Node>
+                    </Node>
+                  </Node>
+                </Node>
+                <Node id="447" score="6" recordCount="23.0">
+                  <SimplePredicate field="total sulfur dioxide" operator="greaterThan" value="0.15371024734982333"/>
+                  <ScoreDistribution value="5" recordCount="4.0"/>
+                  <ScoreDistribution value="7" recordCount="5.0"/>
+                  <ScoreDistribution value="4" recordCount="0.0"/>
+                  <ScoreDistribution value="6" recordCount="14.0"/>
+                  <ScoreDistribution value="8" recordCount="0.0"/>
+                  <ScoreDistribution value="3" recordCount="0.0"/>
+                </Node>
+              </Node>
+              <Node id="458" score="6" recordCount="72.0">
+                <SimplePredicate field="volatile acidity" operator="greaterThan" value="0.19520547945205477"/>
+                <ScoreDistribution value="5" recordCount="14.0"/>
+                <ScoreDistribution value="7" recordCount="11.0"/>
+                <ScoreDistribution value="4" recordCount="0.0"/>
+                <ScoreDistribution value="6" recordCount="47.0"/>
+                <ScoreDistribution value="8" recordCount="0.0"/>
+                <ScoreDistribution value="3" recordCount="0.0"/>
+                <Node id="459" score="6" recordCount="64.0">
+                  <SimplePredicate field="residual sugar" operator="lessOrEqual" value="0.2071917808219178"/>
+                  <ScoreDistribution value="5" recordCount="7.0"/>
+                  <ScoreDistribution value="7" recordCount="11.0"/>
+                  <ScoreDistribution value="4" recordCount="0.0"/>
+                  <ScoreDistribution value="6" recordCount="46.0"/>
+                  <ScoreDistribution value="8" recordCount="0.0"/>
+                  <ScoreDistribution value="3" recordCount="0.0"/>
+                </Node>
+                <Node id="488" score="5" recordCount="8.0">
+                  <SimplePredicate field="residual sugar" operator="greaterThan" value="0.2071917808219178"/>
+                  <ScoreDistribution value="5" recordCount="7.0"/>
+                  <ScoreDistribution value="7" recordCount="0.0"/>
+                  <ScoreDistribution value="4" recordCount="0.0"/>
+                  <ScoreDistribution value="6" recordCount="1.0"/>
+                  <ScoreDistribution value="8" recordCount="0.0"/>
+                  <ScoreDistribution value="3" recordCount="0.0"/>
+                </Node>
+              </Node>
+            </Node>
+            <Node id="491" score="5" recordCount="7.0">
+              <SimplePredicate field="total sulfur dioxide" operator="greaterThan" value="0.3639575971731449"/>
+              <ScoreDistribution value="5" recordCount="7.0"/>
+              <ScoreDistribution value="7" recordCount="0.0"/>
+              <ScoreDistribution value="4" recordCount="0.0"/>
+              <ScoreDistribution value="6" recordCount="0.0"/>
+              <ScoreDistribution value="8" recordCount="0.0"/>
+              <ScoreDistribution value="3" recordCount="0.0"/>
+            </Node>
+          </Node>
+          <Node id="492" score="7" recordCount="79.0">
+            <SimplePredicate field="alcohol" operator="greaterThan" value="0.5"/>
+            <ScoreDistribution value="5" recordCount="1.0"/>
+            <ScoreDistribution value="7" recordCount="49.0"/>
+            <ScoreDistribution value="4" recordCount="0.0"/>
+            <ScoreDistribution value="6" recordCount="25.0"/>
+            <ScoreDistribution value="8" recordCount="4.0"/>
+            <ScoreDistribution value="3" recordCount="0.0"/>
+            <Node id="493" score="7" recordCount="54.0">
+              <SimplePredicate field="free sulfur dioxide" operator="lessOrEqual" value="0.24647887323943662"/>
+              <ScoreDistribution value="5" recordCount="0.0"/>
+              <ScoreDistribution value="7" recordCount="41.0"/>
+              <ScoreDistribution value="4" recordCount="0.0"/>
+              <ScoreDistribution value="6" recordCount="11.0"/>
+              <ScoreDistribution value="8" recordCount="2.0"/>
+              <ScoreDistribution value="3" recordCount="0.0"/>
+            </Node>
+            <Node id="512" score="6" recordCount="25.0">
+              <SimplePredicate field="free sulfur dioxide" operator="greaterThan" value="0.24647887323943662"/>
+              <ScoreDistribution value="5" recordCount="1.0"/>
+              <ScoreDistribution value="7" recordCount="8.0"/>
+              <ScoreDistribution value="4" recordCount="0.0"/>
+              <ScoreDistribution value="6" recordCount="14.0"/>
+              <ScoreDistribution value="8" recordCount="2.0"/>
+              <ScoreDistribution value="3" recordCount="0.0"/>
+            </Node>
+          </Node>
+        </Node>
+      </Node>
+    </Node>
+  </TreeModel>
+</PMML>

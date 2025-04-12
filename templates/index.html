@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Wine Quality Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>🍷 Wine Quality Predictor</h1>
+
+    <form id="wineForm">
+        <div id="inputs"></div>
+        <button type="submit">Predict</button>
+    </form>
+
+    <!-- These were missing before -->
+    <div id="message"></div>
+    <div id="result"></div>
+    <div id="category"></div>
+</div>
+
+<!-- Load script after DOM is ready -->
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
